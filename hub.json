@@ -1,7 +1,8 @@
 {
   "variables": {
     "aws_access_key": "",
-    "aws_secret_key": ""
+    "aws_secret_key": "",
+    "aws_region": ""
   },
   "provisioners": [
     {
@@ -14,9 +15,9 @@
     "type": "amazon-ebs",
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
-    "region": "us-east-1",
-    "source_ami": "ami-f0e7d19a",
-    "instance_type": "t2.micro",
+    "region": "{{user `aws_region`}}",
+    "source_ami": "ami-98e114f8",
+    "instance_type": "t2.medium",
     "ssh_username": "admin",
     "ssh_timeout": "1000s",
     "ami_name": "awforce-d8-hub {{timestamp}}"
