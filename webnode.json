@@ -17,7 +17,7 @@
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "{{user `aws_region`}}",
     "source_ami": "ami-98e114f8",
-    "instance_type": "m4.large",
+    "instance_type": "t2.medium",
     "ssh_username": "admin",
     "ssh_timeout": "1000s",
     "ami_name": "awforce-d8-webnode {{timestamp}}"
