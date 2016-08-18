@@ -10,7 +10,7 @@
   "provisioners": [
     {
       "type": "ansible",
-      "playbook_file": "awforce-ansible/webnode_packer.yml",
+      "playbook_file": "awforce-ansible/packer.yml",
       "extra_arguments": [ "--extra-vars", "aegir_mysql_host={{user `aegir_mysql_host`}} aegir_mysql_user={{user `aegir_mysql_user`}} aegir_mysql_password={{user `aegir_mysql_password`}}" ]
     }
   ],
@@ -23,7 +23,7 @@
     "instance_type": "t2.medium",
     "ssh_username": "admin",
     "ssh_timeout": "1000s",
-    "ami_name": "awforce-d8-webnode {{timestamp}}"
+    "ami_name": "awforce-d8 {{timestamp}}"
   }],
   "post-processors": [
     [
