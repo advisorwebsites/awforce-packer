@@ -2,13 +2,16 @@
   "variables": {
     "aws_access_key": "",
     "aws_secret_key": "",
-    "aws_region": ""
+    "aws_region": "",
+    "aegir_mysql_host": "",
+    "aegir_mysql_user": "",
+    "aegir_mysql_password": ""
   },
   "provisioners": [
     {
       "type": "ansible",
       "playbook_file": "awforce-ansible/hub_packer.yml",
-      "groups": ["common", "mysql-servers", "nginx"]
+      "extra_arguments": [ "--extra-vars", "aegir_mysql_host={{user `aegir_mysql_host`}} aegir_mysql_user={{user `aegir_mysql_user`}} aegir_mysql_password={{user `aegir_mysql_password`}}" ]
     }
   ],
   "builders": [{
