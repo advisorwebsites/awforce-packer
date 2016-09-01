@@ -11,6 +11,7 @@
     {
       "type": "ansible",
       "playbook_file": "awforce-ansible/packer.yml",
+      "user": "admin",
       "extra_arguments": [ "--extra-vars", "aegir_mysql_host={{user `aegir_mysql_host`}} aegir_mysql_user={{user `aegir_mysql_user`}} aegir_mysql_password={{user `aegir_mysql_password`}}" ]
     }
   ],
