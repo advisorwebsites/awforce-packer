@@ -20,7 +20,7 @@
     "access_key": "{{user `aws_access_key`}}",
     "secret_key": "{{user `aws_secret_key`}}",
     "region": "{{user `aws_region`}}",
-    "source_ami": "ami-98e114f8",
+    "source_ami": "ami-8f7bd9ef",
     "instance_type": "t2.medium",
     "ssh_username": "admin",
     "ssh_timeout": "1000s",

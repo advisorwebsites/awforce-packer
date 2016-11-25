@@ -1,0 +1,37 @@
+{
+  "variables": {
+    "dev_aws_access_key": "",
+    "dev_aws_secret_key": "",
+    "dev_aws_region": "",
+    "dev_aegir_mysql_host": "",
+    "dev_aegir_mysql_user": "",
+    "dev_aegir_mysql_password": ""
+  },
+  "provisioners": [
+    {
+      "type": "ansible",
+      "playbook_file": "awforce-ansible/packer.yml",
+      "user": "admin",
+      "extra_arguments": [ "--extra-vars", "aegir_mysql_host={{user `dev_aegir_mysql_host`}} aegir_mysql_user={{user `dev_aegir_mysql_user`}} aegir_mysql_password={{user `dev_aegir_mysql_password`}}" ]
+    }
+  ],
+  "builders": [{
+    "type": "amazon-ebs",
+    "access_key": "{{user `dev_aws_access_key`}}",
+    "secret_key": "{{user `dev_aws_secret_key`}}",
+    "region": "{{user `dev_aws_region`}}",
+    "source_ami": "ami-8f7bd9ef",
+    "instance_type": "t2.large",
+    "ssh_username": "admin",
+    "ssh_timeout": "1000s",
+    "ami_name": "awforce-d8 {{timestamp}}"
+  }],
+  "post-processors": [
+    [
+      {
+        "type": "vagrant",
+        "keep_input_artifact": false
+      }
+    ]
+  ]
+}
